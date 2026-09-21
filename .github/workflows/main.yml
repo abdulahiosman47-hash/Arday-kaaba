@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Setup Flutter
@@ -18,11 +18,10 @@ jobs:
           channel: stable
 
       - name: Extract project
-        run: |
-          unzip Arday_Kaaba_App_Starter.zip -d project
+        run: unzip Arday_Kaaba_App_Starter.zip
 
       - name: Build APK
-       working-directory: Arday_Kaaba_App_Starter 
+        working-directory: Arday_Kaaba_App_Starter
         run: |
           flutter pub get
           flutter build apk --release
@@ -30,5 +29,5 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: arday-kaaba-apk
-          path: project/Arday_Kaaba_App_Starter/build/app/outputs/flutter-apk/app-release.apk
+          name: app-release-apk
+          path: Arday_Kaaba_App_Starter/build/app/outputs/flutter-apk/app-release.apk
