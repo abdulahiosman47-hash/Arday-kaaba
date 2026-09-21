@@ -22,7 +22,7 @@ jobs:
           unzip Arday_Kaaba_App_Starter.zip -d project
 
       - name: Build APK
-        working-directory: project/Arday_Kaaba_App_Starter
+       working-directory: Arday_Kaaba_App_Starter 
         run: |
           flutter pub get
           flutter build apk --release
